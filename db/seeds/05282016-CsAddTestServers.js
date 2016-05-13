@@ -1,5 +1,5 @@
 module.exports = function(db, conn, conf) {
-  return db.db("gs_test").table("servers").insert([
+  return db.db(conf.database.name).table("servers").insert([
     {
       name: "Host-1",
       parent: null,
