@@ -1,0 +1,14 @@
+# NodeJs server configuration
+node:
+  port: 80
+  clusterMode: no
+
+logger:
+  level: error
+
+# Database configuration
+database:
+  name: 'prodDb'
+  port: 27017
+  user: myUser
+  password: myPassword

@@ -1,0 +1,15 @@
+# NodeJs server configuration
+node:
+  port: 80
+  clusterMode: no
+
+logger:
+  level: info
+
+# Database configuration
+database:
+  name: gs_dev
+  host: localhost
+  port: 28015
+  user: myUser
+  password: myPassword
