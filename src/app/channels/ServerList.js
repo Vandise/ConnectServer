@@ -14,7 +14,7 @@ export default (server, session) => {
     return server.r.table('servers').filter({
       parent: null,
       is_offline: false
-    }).pluck('name').run(server.conn).then((cursor) => {
+    }).pluck('name').orderBy('name').run(server.conn).then((cursor) => {
 
       return cursor.toArray();
       
@@ -33,7 +33,7 @@ export default (server, session) => {
         return server.r.table('servers').filter({
             parent: s,
             is_offline: false
-          }).run(server.conn).then((cursor) => {
+          }).orderBy('name').run(server.conn).then((cursor) => {
           
             return cursor.toArray();
           
