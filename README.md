@@ -12,8 +12,27 @@ The following requests are availble by the CS
 
 ### get_active_servers
 Returns servers who've reported an online status.
+```javascript
+socket.emit(get_active_servers, {});
 ```
-Response:
+
+### authenticate_client
+When a user selects a gameserver from the available lists, the selected gameserver must be pinged to validate it will accept more connections and validate that the client version is compatible.
+
+```javascript
+var data = {
+  host: 'localhost',
+  port: 60006,
+  version: '1.02d'
+};
+socket.emit('authenticate_client', data);
+```
+
+## Responses
+The following responses are accepted by the CS
+
+### get_active_servers
+```
 Object:
   host_1: Array<ChannelObject>
   host_2: ...
@@ -28,3 +47,21 @@ Each host contains an array of available ChannelObjects containing the following
 | connections   | Integer       | Total User Conenctions on the Channel |
 | max_connections | Integer     | Maximum connections supported by the Channel|
 | name          |   String      | Channel name |
+
+### authenticate_client
+```
+Object:
+  status: 1|0
+```
+Authenticate Client can return a status object containing a 1 if the server is available and the client matches, or a 0 if not. When the server is unavailable, a server_error message will be recieved.
+
+### server_error
+Server error is used throughout all the server setups. It contains a message string and a code. 
+```
+Object:
+  message: <string>
+  code: <integer>
+```
+| Request             | Error Code    | Message                           |
+|:------------------- |:-------------:| :---------------------------------|
+| authenticate_client | 999           | (999) Connection refused. |
