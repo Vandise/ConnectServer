@@ -46,7 +46,7 @@ describe("Channels::ClientAuth", () => {
   
       it("it should be a valid client", (done) => {
         socket.emit("authenticate_client", {
-          host: 'http://localhost',
+          host: 'localhost',
           port: 60006,
           version: '1.02d'
         });
@@ -67,7 +67,7 @@ describe("Channels::ClientAuth", () => {
 
       it("should send a 999 error status code", (done) => {
         socket.emit("authenticate_client", {
-          host: 'http://localhost',
+          host: 'localhost',
           port: 60005,
           version: '1.02d'
         });
@@ -91,7 +91,7 @@ describe("Channels::ClientAuth", () => {
 
     it("Should send a status code of 0", (done) => {
       socket.emit("authenticate_client", {
-        host: 'http://localhost',
+        host: 'localhost',
         port: 60006,
         version: '1.02c'
       });
