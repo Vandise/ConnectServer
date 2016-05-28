@@ -16,14 +16,16 @@
   "author": "Benjamin J. Anderson",
   "license": "MIT",
   "dependencies": {
-    "cookie-parser": "^1.4.1",
-    "underscore": "1.8.3",
-    "colors": "1.1.2",
     "bunyan": "1.5.1",
+    "colors": "1.1.2",
+    "cookie-parser": "^1.4.1",
     "js-yaml": "3.4.3",
     "rethinkdb": "^2.3.1",
+    "socket.io": "^1.4.6",
+    "socket.io-client": "^1.4.6",
     "socket.io-cookie-parser": "^1.0.0",
     "socketio": "^1.0.0",
+    "underscore": "1.8.3",
     "yargs": "^3.16.1"
   },
   "devDependencies": {
