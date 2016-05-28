@@ -18,6 +18,7 @@ export default (server) => {
     
     socket.on('disconnect', () => {
       server.logger.info("User Disconnected.");
+      socket.disconnect(true);
       delete server.session[socket.id];
     });
     

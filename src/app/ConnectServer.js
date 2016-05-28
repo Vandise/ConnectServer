@@ -47,6 +47,12 @@ export default class ConnectServer {
   }
 
   close() {
+    let index = 0;
+    for (index in this.server.session) {
+      let session = this.server.session[index];
+      session.socket.disconnect(true);
+    }
+    this.io.close();
     this.conn.close();
     this.server.close();
   }
